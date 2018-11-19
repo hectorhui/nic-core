@@ -50,4 +50,7 @@ class NIC_ML(object):
     def save_to_firedb(self, collection_name , newssite='', data=''):
         today  = datetime.now().date().isoformat()
         self.db.insert(collection_name +'/' + str(today) + '/' + newssite, data=data)
+    
+    def clean_db(self, collection_name):
+        self.db.remove(collection_name)
 

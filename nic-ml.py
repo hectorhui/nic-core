@@ -36,8 +36,8 @@ for idx,source in enumerate(all_source):
         process_data[path]['concpets'] = concepts[0]
         process_data[path]['url'] = 'www.' + news['source'] + '.com' + news['url']
         process_data[path]['published-time'] = news['time']
-        
-        nic_ml.save_to_firedb(collection_name='nic-concepts', newssite=news['source'] + '/' + path  + '/', data=process_data)
+        if(len(concepts[0]) > 0):
+            nic_ml.save_to_firedb(collection_name='nic-concepts', newssite=news['source'] + '/' + path , data=process_data)
 
         for concept in concepts[0]:
             label = concept['label']
@@ -57,6 +57,7 @@ logger['nic-ml'] = {
     'time': str(datetime.now().isoformat())
 }
 nic_ml.save_to_firedb('logger', data=logger)
+# nic_ml.clean_db('news')
         
 
     
