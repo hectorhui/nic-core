@@ -19,12 +19,18 @@ count = 0
 for idx,source in enumerate(all_source):
     
     for news in source:
+        
         if(idx >2):
             news = source[news]
+            path =  news['url'].replace('/','-')
+            path = path.replace('.','-')
+     
+        if(idx <3):
+            path =  news['url'].replace('/','-')
+       
         textdata = [news['textdata']]
         concepts = nic_ml.predict(textdata)
 
-        path =  news['url'].replace('/','-')
         process_data={}
         process_data[path] = {}
         process_data[path]['concpets'] = concepts[0]
@@ -38,7 +44,7 @@ for idx,source in enumerate(all_source):
             pred_concepts = {}
             pred_concepts['url'] = 'www.' + news['source'] + '.com' + news['url']
             pred_concepts['published-time'] = news['time']
-            path = news['url'].replace('/','-')
+    
             nic_ml.save_to_firedb(collection_name='concepts/' + label + '/' , newssite= path , data=pred_concepts)
 
         count+=1
