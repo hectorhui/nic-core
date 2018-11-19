@@ -32,10 +32,9 @@ for idx,source in enumerate(all_source):
         concepts = nic_ml.predict(textdata)
 
         process_data={}
-        process_data[path] = {}
-        process_data[path]['concpets'] = concepts[0]
-        process_data[path]['url'] = 'www.' + news['source'] + '.com' + news['url']
-        process_data[path]['published-time'] = news['time']
+        process_data['concpets'] = concepts[0]
+        process_data['url'] = 'www.' + news['source'] + '.com' + news['url']
+        process_data['published-time'] = news['time']
         if(len(concepts[0]) > 0):
             nic_ml.save_to_firedb(collection_name='nic-concepts', newssite=news['source'] + '/' + path , data=process_data)
 
