@@ -31,7 +31,7 @@ for idx,source in enumerate(all_source):
         process_data[path]['url'] = 'www.' + news['source'] + '.com' + news['url']
         process_data[path]['published-time'] = news['time']
         
-        nic_ml.save_to_firedb(collection_name='nic-concepts', newssite=news['source'] + '/' + 'path' , process_data)
+        nic_ml.save_to_firedb(collection_name='nic-concepts', newssite=news['source'] + '/' + path  + '/', data=process_data)
 
         for concept in concepts[0]:
             label = concept['label']
