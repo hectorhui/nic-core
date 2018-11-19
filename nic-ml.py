@@ -31,18 +31,17 @@ for idx,source in enumerate(all_source):
         process_data[path]['url'] = 'www.' + news['source'] + '.com' + news['url']
         process_data[path]['published-time'] = news['time']
         
-        nic_ml.save_to_firedb('nic-concepts', str(source), process_data)
+        nic_ml.save_to_firedb('nic-concepts', news['source'], process_data)
 
         for concept in concepts[0]:
             label = concept['label']
             pred_concepts = {}
             pred_concepts['url'] = 'www.' + news['source'] + '.com' + news['url']
             pred_concepts['published-time'] = news['time']
-            nic_ml.save_to_firedb(collection_name='concepts/' + label + '/', newssite=news['url'].replace('/','-') , data=pred_concepts)
+            path = news['url'].replace('/','-')
+            nic_ml.save_to_firedb(collection_name='concepts/' + label + , newssite= path , data=pred_concepts)
 
         count+=1
-        if count>0:
-            break
         
     
 logger ={}
