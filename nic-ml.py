@@ -3,7 +3,7 @@ from app import NIC_ML
 import numpy as np
 
 model_name = 'reuters'
-nic_ml = NIC_ML(model_name, True)
+nic_ml = NIC_ML(model_name, onlyeone=True, mode='smart')
 
 
 bbc = nic_ml.get_data_firedb('/news/bbc')

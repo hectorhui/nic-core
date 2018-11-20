@@ -1,8 +1,10 @@
 # nic-api
-## main.py
+Common module for Deep Learning classifier and Flask API
+
+## nic-api/main.py
 News-Industry classification api with FLASK
 
-## nic-ml.py
+## nic-api/nic-ml.py
 Deep Learning Module for News-Industy Classification
 
 # How to install 
