@@ -6,4 +6,4 @@ News-Industry classification api with FLASK
 
 # How to run 
 - `python3 main.py`
-- open your browser and go to (localhost:5000)[http://localhost:5000]
+- open your browser and go to [localhost:5000](http://localhost:5000)
