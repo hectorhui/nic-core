@@ -1,7 +1,6 @@
 Flask==0.12.2
-numpy==1.14.2
-Pyrebase==3.0.27
-nltk==3.3
-tensorflow==1.5.0
 Keras==2.2.4
+Pyrebase==3.0.27
+numpy==1.14.2
+nltk==3.3
 scikit_learn==0.20.0
